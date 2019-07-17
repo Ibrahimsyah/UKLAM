@@ -2,6 +2,7 @@ package com.zairussalamdev.uklam.view
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -11,6 +12,7 @@ import com.zairussalamdev.uklam.adapter.EventAdapter
 import com.zairussalamdev.uklam.adapter.RecommendAdapter
 import com.zairussalamdev.uklam.model.ListItem
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,5 +33,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.search_menu, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if(item?.itemId == android.R.id.home)startActivity<FavouriteActivity>()
+        if(item?.itemId == R.id.menu_search)startActivity<SearchActivity>()
+        return super.onOptionsItemSelected(item)
     }
 }
