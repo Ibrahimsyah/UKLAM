@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.zairussalamdev.uklam.Item
+import com.zairussalamdev.uklam.model.Item
 import com.zairussalamdev.uklam.R
 import kotlinx.android.synthetic.main.item_recommend.view.*
 
