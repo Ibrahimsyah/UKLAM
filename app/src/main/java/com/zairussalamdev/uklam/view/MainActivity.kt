@@ -1,6 +1,7 @@
 package com.zairussalamdev.uklam.view
 
 import android.os.Bundle
+import android.view.Menu
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
+        toolbar.setNavigationIcon(R.drawable.ic_favorite_white)
         setSupportActionBar(toolbar)
 
         val items = intent.getParcelableExtra<ListItem>("items").items
@@ -26,4 +28,8 @@ class MainActivity : AppCompatActivity() {
         rvEvent.adapter = EventAdapter(applicationContext, items) {}
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.search_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 }
