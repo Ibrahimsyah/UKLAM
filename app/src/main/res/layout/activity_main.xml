@@ -8,7 +8,7 @@
 
     <ImageView
             android:layout_width="match_parent"
-            android:layout_height="200dp" app:srcCompat="@drawable/round_bg"/>
+            android:layout_height="200dp" android:src="@drawable/round_bg"/>
     <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="70dp"
@@ -21,27 +21,64 @@
             android:contentInsetEnd="0dp"
             app:contentInsetRight="0dp"
             app:contentInsetEnd="0dp">
-        <!--<TextView-->
-        <!--android:text="@string/app_name"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent" android:id="@+id/textView" android:textColor="#fff"-->
-        <!--android:textAlignment="center" android:textSize="30sp"-->
-        <!--android:textStyle="bold"-->
-        <!--/>-->
         <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize" app:srcCompat="@drawable/logo"
+                android:layout_height="?attr/actionBarSize" android:src="@drawable/logo"
                 android:id="@+id/imageView2"/>
     </androidx.appcompat.widget.Toolbar>
-
-    <RelativeLayout
+    <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_marginTop="?attr/actionBarSize" android:padding="16dp">
-
-        <androidx.recyclerview.widget.RecyclerView
+            android:layout_height="match_parent" android:fillViewport="true"
+            android:layout_marginTop="70dp">
+        <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/rvRecommend">
-        </androidx.recyclerview.widget.RecyclerView>
-    </RelativeLayout>
+                android:padding="16dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" android:fitsSystemWindows="true">
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rvRecommend" tools:itemCount="6">
+            </androidx.recyclerview.widget.RecyclerView>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp" android:weightSum="2"
+                    android:layout_marginTop="16dp" android:layout_below="@id/rvRecommend" android:id="@+id/menu">
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_weight="1" android:weightSum="2"
+                        android:paddingEnd="8dp">
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" android:src="@drawable/logo"
+                            android:id="@+id/imageView18" android:layout_weight="1" android:layout_marginBottom="8dp"/>
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" android:src="@drawable/logo"
+                            android:id="@+id/imageView19" android:layout_weight="1" android:layout_marginTop="8dp"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:layout_weight="1" android:paddingLeft="8dp">
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:src="@drawable/logo"
+                            android:id="@+id/imageView20" android:layout_weight="1" android:layout_marginBottom="8dp"/>
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:src="@drawable/logo"
+                            android:id="@+id/imageView21" android:layout_weight="1" android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/rvEvent" android:layout_below="@id/menu"
+                    android:layout_marginTop="16dp"/>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

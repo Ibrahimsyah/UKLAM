@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.*
+import com.zairussalamdev.uklam.adapter.EventAdapter
 import com.zairussalamdev.uklam.adapter.RecommendAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 rvRecommend.layoutManager = LinearLayoutManager(applicationContext, LinearLayout.HORIZONTAL, false)
                 rvRecommend.adapter = RecommendAdapter(applicationContext, items) {}
+                rvEvent.layoutManager = LinearLayoutManager(applicationContext)
+                rvEvent.adapter = EventAdapter(applicationContext, items) {}
             }
 
             override fun onCancelled(p0: DatabaseError) {
