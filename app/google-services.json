@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "202510338924",
+    "firebase_url": "https://uklam-7f301.firebaseio.com",
+    "project_id": "uklam-7f301",
+    "storage_bucket": "uklam-7f301.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202510338924:android:393f5925385e3617",
+        "android_client_info": {
+          "package_name": "com.zairussalamdev.uklam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202510338924-dou8imbgesalqacpclos8439v80ft534.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaO8mK4U2Ag2Ii366Hv5XtmGPN6xvUN3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202510338924-dou8imbgesalqacpclos8439v80ft534.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
