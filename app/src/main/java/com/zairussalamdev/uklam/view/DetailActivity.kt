@@ -6,6 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -41,13 +42,23 @@ class DetailActivity : AppCompatActivity() {
             Glide.with(applicationContext).load(photos?.get(position)).into(imageView)
         }
 
-        tvLokasi.text = item.address
-        itemDescription.text = item.description
-        btnMaps.onClick{
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse(item.location)
-            startActivity(intent)
+        item.name?.let{
+            itemName.visibility = View.VISIBLE
+            itemName.text = it
         }
+        itemDescription.text = item.description
+        item.address?.let{
+            iconPin.visibility = View.VISIBLE
+            tvLokasi.visibility = View.VISIBLE
+            tvLokasi.text = item.address
+            btnMaps.visibility = View.VISIBLE
+            btnMaps.onClick {
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse(item.location)
+                startActivity(intent)
+            }
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

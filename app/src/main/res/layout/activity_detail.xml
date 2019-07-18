@@ -15,7 +15,6 @@
             android:theme="@style/AppTheme">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/detailCollapsingToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
@@ -51,10 +50,17 @@
                 android:layout_height="match_parent" android:fitsSystemWindows="false"
                 android:padding="16dp">
 
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/itemName"
+                    android:fontFamily="@font/productsans_bold" android:textSize="18sp" android:visibility="gone"
+                    android:textColor="@android:color/black"/>
             <ImageView
                     android:src="@drawable/ic_pin_drop"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/iconPin" android:layout_marginLeft="16dp"/>
+                    android:layout_height="wrap_content" android:id="@+id/iconPin" android:layout_marginLeft="16dp"
+                    android:layout_below="@id/itemName" android:layout_marginTop="16dp" android:visibility="gone"/>
             <TextView
                     android:text="Alamat"
                     android:layout_width="wrap_content"
@@ -62,7 +68,8 @@
                     android:layout_toRightOf="@id/iconPin"
                     android:layout_alignParentBottom="false"
                     android:layout_alignTop="@id/iconPin" android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/productsans_regular" android:layout_alignBaseline="@id/iconPin"/>
+                    android:fontFamily="@font/productsans_regular" android:layout_alignBaseline="@id/iconPin"
+                    android:visibility="gone"/>
             <TextView
                     android:text="Deskripsi"
                     android:layout_width="wrap_content"
@@ -74,7 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:id="@+id/itemDescription"
                     android:layout_below="@id/tvDescription"
-                    android:layout_marginTop="16dp" android:fontFamily="@font/productsans_regular"/>
+                    android:layout_marginTop="8dp" android:fontFamily="@font/productsans_regular"/>
             <Button
                     android:text="Kunjungi"
                     android:layout_width="match_parent"
@@ -82,7 +89,7 @@
                     android:layout_below="@id/itemDescription"
                     android:background="@color/colorPrimary" android:textColor="@android:color/white"
                     android:fontFamily="@font/productsans_bold" android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"/>
+                    android:layout_marginBottom="16dp" android:visibility="gone"/>
         </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
