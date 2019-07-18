@@ -58,7 +58,7 @@
                     <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" android:layout_weight="1" app:cardCornerRadius="10dp"
-                            android:layout_marginBottom="8dp">
+                            android:layout_marginBottom="8dp" android:id="@+id/btnWisata">
                         <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent" android:src="@drawable/icon_wisata"
@@ -68,7 +68,7 @@
                     <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" android:layout_weight="1" app:cardCornerRadius="10dp"
-                            android:layout_marginTop="8dp">
+                            android:layout_marginTop="8dp" android:id="@+id/btnBudaya">
                         <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent" android:src="@drawable/icon_budaya"
@@ -83,7 +83,7 @@
                     <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" android:layout_weight="1" app:cardCornerRadius="10dp"
-                            android:layout_marginBottom="8dp">
+                            android:layout_marginBottom="8dp" android:id="@+id/btnKuliner">
                         <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content" android:src="@drawable/icon_kuliner"
@@ -93,7 +93,7 @@
                     <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" android:layout_weight="1" app:cardCornerRadius="10dp"
-                            android:layout_marginTop="8dp">
+                            android:layout_marginTop="8dp" android:id="@+id/btnBelanja">
                         <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content" android:src="@drawable/icon_belanja"

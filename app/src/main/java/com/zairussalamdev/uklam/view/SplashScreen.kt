@@ -9,10 +9,10 @@ import com.zairussalamdev.uklam.presenter.MainView
 import org.jetbrains.anko.startActivity
 
 class SplashScreen : AppCompatActivity(), MainView {
-    override fun showSplash() {
+    override fun showLoading() {
     }
 
-    override fun hideSplash() {
+    override fun hideLoading() {
         finish()
     }
 

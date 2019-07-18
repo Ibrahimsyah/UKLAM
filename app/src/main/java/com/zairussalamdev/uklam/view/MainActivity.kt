@@ -12,6 +12,7 @@ import com.zairussalamdev.uklam.adapter.EventAdapter
 import com.zairussalamdev.uklam.adapter.RecommendAdapter
 import com.zairussalamdev.uklam.model.ListItem
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +29,19 @@ class MainActivity : AppCompatActivity() {
         rvRecommend.adapter = RecommendAdapter(applicationContext, items) {}
         rvEvent.layoutManager = LinearLayoutManager(applicationContext)
         rvEvent.adapter = EventAdapter(applicationContext, items) {}
+
+        btnWisata.onClick {
+            startActivity<CategoryActivity>("category" to "1")
+        }
+        btnKuliner.onClick {
+            startActivity<CategoryActivity>("category" to "2")
+        }
+        btnBudaya.onClick {
+            startActivity<CategoryActivity>("category" to "3")
+        }
+        btnBelanja.onClick {
+            startActivity<CategoryActivity>("category" to "4")
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

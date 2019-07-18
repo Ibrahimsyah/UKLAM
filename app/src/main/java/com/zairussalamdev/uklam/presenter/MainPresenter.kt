@@ -7,13 +7,12 @@ import com.google.firebase.database.ValueEventListener
 import com.zairussalamdev.uklam.model.Item
 import com.zairussalamdev.uklam.model.ListItem
 import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
 
 class MainPresenter(
     private val mainView: MainView
 ) {
     fun grabData() {
-        mainView.showSplash()
+        mainView.showLoading()
         doAsync {
             val items: MutableList<Item> = mutableListOf()
             lateinit var listItems: ListItem
@@ -21,11 +20,33 @@ class MainPresenter(
             ref.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
                     for (h in p0.children) {
-                        val user = h.getValue(Item::class.java)
-                        items.add(user!!)
+                        val item = h.getValue(Item::class.java)
+                        item?.let { items.add(it) }
                     }
                     listItems = ListItem(items)
-                    mainView.hideSplash()
+                    mainView.hideLoading()
+                    mainView.showData(listItems)
+                }
+
+                override fun onCancelled(p0: DatabaseError) {}
+
+            })
+        }
+    }
+    fun grabDataByCategory(category: String){
+        mainView.showLoading()
+        doAsync {
+            val items: MutableList<Item> = mutableListOf()
+            lateinit var listItems: ListItem
+            val ref = FirebaseDatabase.getInstance().getReference("Items")
+            ref.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(p0: DataSnapshot) {
+                    for (h in p0.children) {
+                        val item = h.getValue(Item::class.java)
+                        if(item?.category == category)items.add(item)
+                    }
+                    listItems = ListItem(items)
+                    mainView.hideLoading()
                     mainView.showData(listItems)
                 }
 
@@ -37,7 +58,7 @@ class MainPresenter(
 }
 
 interface MainView {
-    fun showSplash()
-    fun hideSplash()
+    fun showLoading()
+    fun hideLoading()
     fun showData(items: ListItem)
 }
