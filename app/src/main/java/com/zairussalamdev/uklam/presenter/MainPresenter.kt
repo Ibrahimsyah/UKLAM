@@ -33,7 +33,8 @@ class MainPresenter(
             })
         }
     }
-    fun grabDataByCategory(category: String){
+
+    fun grabDataByCategory(category: String) {
         mainView.showLoading()
         doAsync {
             val items: MutableList<Item> = mutableListOf()
@@ -43,7 +44,30 @@ class MainPresenter(
                 override fun onDataChange(p0: DataSnapshot) {
                     for (h in p0.children) {
                         val item = h.getValue(Item::class.java)
-                        if(item?.category == category)items.add(item)
+                        if (item?.category == category) items.add(item)
+                    }
+                    listItems = ListItem(items)
+                    mainView.hideLoading()
+                    mainView.showData(listItems)
+                }
+
+                override fun onCancelled(p0: DatabaseError) {}
+
+            })
+        }
+    }
+
+    fun grabDataByQuery(query: String) {
+        mainView.showLoading()
+        doAsync {
+            val items: MutableList<Item> = mutableListOf()
+            lateinit var listItems: ListItem
+            val ref = FirebaseDatabase.getInstance().getReference("Items")
+            ref.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(p0: DataSnapshot) {
+                    for (h in p0.children) {
+                        val item = h.getValue(Item::class.java)
+                        if (item?.name?.contains(query, ignoreCase = true)!!) items.add(item)
                     }
                     listItems = ListItem(items)
                     mainView.hideLoading()

@@ -11,7 +11,7 @@
             android:layout_height="200dp" android:src="@drawable/round_bg"/>
     <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="?attr/actionBarSize"
             android:id="@+id/toolbar"
             android:contentInsetLeft="0dp"
             android:contentInsetStart="0dp"
@@ -105,7 +105,8 @@
             <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" android:layout_below="@id/menu"
-                    android:background="@android:color/white" android:padding="16dp" android:layout_marginTop="10dp">
+                    android:background="@android:color/white" android:layout_marginTop="10dp"
+                    android:paddingStart="16dp" android:paddingTop="16dp" android:paddingEnd="16dp">
 
                 <TextView
                         android:text="Anda Harus Tahu"

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.zairussalamdev.uklam.R
 import com.zairussalamdev.uklam.adapter.EventAdapter
 import com.zairussalamdev.uklam.adapter.RecommendAdapter
+import com.zairussalamdev.uklam.model.Item
 import com.zairussalamdev.uklam.model.ListItem
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -25,8 +26,9 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         val items = intent.getParcelableExtra<ListItem>("items").items
+        val recommendItems = initRecommend(items)
         rvRecommend.layoutManager = LinearLayoutManager(applicationContext, LinearLayout.HORIZONTAL, false)
-        rvRecommend.adapter = RecommendAdapter(applicationContext, items) {}
+        rvRecommend.adapter = RecommendAdapter(applicationContext, recommendItems) {}
         rvEvent.layoutManager = LinearLayoutManager(applicationContext)
         rvEvent.adapter = EventAdapter(applicationContext, items) {}
 
@@ -44,14 +46,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun initRecommend(items : List<Item>) : List<Item>{
+        val recommendItems : MutableList<Item> = mutableListOf()
+        for(i in items){
+            if(i.shortName != "")recommendItems.add(i)
+        }
+        return recommendItems
+    }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.search_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if(item?.itemId == android.R.id.home)startActivity<FavouriteActivity>()
-        if(item?.itemId == R.id.menu_search)startActivity<SearchActivity>()
+        if (item?.itemId == android.R.id.home) startActivity<FavouriteActivity>()
+        if (item?.itemId == R.id.menu_search) startActivity<SearchActivity>()
         return super.onOptionsItemSelected(item)
     }
 }
