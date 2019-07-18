@@ -1,5 +1,7 @@
 package com.zairussalamdev.uklam.view
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
@@ -10,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.zairussalamdev.uklam.R
 import com.zairussalamdev.uklam.model.Item
 import kotlinx.android.synthetic.main.activity_detail.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class DetailActivity : AppCompatActivity() {
 
@@ -26,7 +29,7 @@ class DetailActivity : AppCompatActivity() {
 
         val item = intent.getParcelableExtra<Item>("item")
 
-        detailCollapsingToolbar.title = item.shortName
+        detailToolbar.title = item.shortName
         setSupportActionBar(detailToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -36,6 +39,14 @@ class DetailActivity : AppCompatActivity() {
         }
         detailPhoto.setImageListener { position, imageView ->
             Glide.with(applicationContext).load(photos?.get(position)).into(imageView)
+        }
+
+        tvLokasi.text = item.address
+        itemDescription.text = item.description
+        btnMaps.onClick{
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(item.location)
+            startActivity(intent)
         }
     }
 

@@ -26,7 +26,8 @@ class UKLAMDbHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "UKLAMDatabase.
         Item.ITEM_DESCRIPTION to TEXT,
         Item.ITEM_CATEGORY to TEXT,
         Item.ITEM_PHOTO to TEXT,
-        Item.ITEM_LOCATION to TEXT
+        Item.ITEM_LOCATION to TEXT,
+        Item.ITEM_ADDRESS to TEXT
     )
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) = db.dropTable(Item.TABLE_FAV, true)

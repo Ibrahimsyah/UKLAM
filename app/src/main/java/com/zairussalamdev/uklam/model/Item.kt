@@ -10,19 +10,21 @@ data class Item(
     val description: String?,
     val category: String?,
     val photo: String?,
-    val location: String?
+    val location: String?,
+    val address: String?
 ) : Parcelable {
-    constructor() : this("", "", "", "", "", "")
+    constructor() : this("", "", "", "", "", "", "")
 
     companion object{
-        val TABLE_FAV : String = "TABLE_FAV"
-        val ID : String = "ID_"
-        val ITEM_NAME: String = "ITEM_NAME"
-        val ITEM_SHORTNAME : String = "ITEM_SHORTNAME"
-        val ITEM_DESCRIPTION : String = "ITEM_DESCRIPTION"
-        val ITEM_CATEGORY : String = "ITEM_CATEGORY"
-        val ITEM_PHOTO : String = "ITEM_PHOTO"
-        val ITEM_LOCATION : String = "ITEM_LOCATION"
+        const val TABLE_FAV : String = "TABLE_FAV"
+        const val ID : String = "ID_"
+        const val ITEM_NAME: String = "ITEM_NAME"
+        const val ITEM_SHORTNAME : String = "ITEM_SHORTNAME"
+        const val ITEM_DESCRIPTION : String = "ITEM_DESCRIPTION"
+        const val ITEM_CATEGORY : String = "ITEM_CATEGORY"
+        const val ITEM_PHOTO : String = "ITEM_PHOTO"
+        const val ITEM_LOCATION : String = "ITEM_LOCATION"
+        const val ITEM_ADDRESS : String = "ITEM_ADDRESS"
     }
 }
 

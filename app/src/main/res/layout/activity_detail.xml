@@ -6,23 +6,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.DetailActivity"
-        android:fitsSystemWindows="false">
+        android:fitsSystemWindows="true">
     <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:background="?attr/colorPrimary"
             android:fitsSystemWindows="true"
             android:theme="@style/AppTheme">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/detailCollapsingToolbar"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
                 app:contentScrim="?attr/colorPrimary"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-                android:id="@+id/detailCollapsingToolbar"
-                app:titleEnabled="true"
-                app:title="@string/app_name"
+                app:titleEnabled="false"
         >
             <com.synnapps.carouselview.CarouselView
                     android:layout_width="match_parent"
@@ -34,7 +33,7 @@
                     app:strokeColor="@color/colorPrimary"
                     app:strokeWidth="1dp"
                     android:id="@+id/detailPhoto"
-            app:layout_collapseMode="parallax"></com.synnapps.carouselview.CarouselView>
+                    app:layout_collapseMode="parallax"></com.synnapps.carouselview.CarouselView>
             <androidx.appcompat.widget.Toolbar
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -43,4 +42,48 @@
                     app:layout_collapseMode="pin" android:layout_marginTop="24dp"/>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:fitsSystemWindows="false"
+                android:padding="16dp">
+
+            <ImageView
+                    android:src="@drawable/ic_pin_drop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/iconPin" android:layout_marginLeft="16dp"/>
+            <TextView
+                    android:text="Alamat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/tvLokasi"
+                    android:layout_toRightOf="@id/iconPin"
+                    android:layout_alignParentBottom="false"
+                    android:layout_alignTop="@id/iconPin" android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/productsans_regular" android:layout_alignBaseline="@id/iconPin"/>
+            <TextView
+                    android:text="Deskripsi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/tvDescription"
+                    android:layout_below="@id/tvLokasi" android:layout_marginTop="16dp"
+                    android:fontFamily="@font/productsans_bold" android:textSize="16sp"/>
+            <TextView
+                    android:text="Deskripsi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/itemDescription"
+                    android:layout_below="@id/tvDescription"
+                    android:layout_marginTop="16dp" android:fontFamily="@font/productsans_regular"/>
+            <Button
+                    android:text="Kunjungi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/btnMaps" android:gravity="center"
+                    android:layout_below="@id/itemDescription"
+                    android:background="@color/colorPrimary" android:textColor="@android:color/white"
+                    android:fontFamily="@font/productsans_bold" android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"/>
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
