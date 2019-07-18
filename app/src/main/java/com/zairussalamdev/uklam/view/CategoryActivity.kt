@@ -11,7 +11,6 @@ import com.zairussalamdev.uklam.model.ListItem
 import com.zairussalamdev.uklam.presenter.MainPresenter
 import com.zairussalamdev.uklam.presenter.MainView
 import kotlinx.android.synthetic.main.activity_category.*
-import kotlinx.android.synthetic.main.activity_main.*
 
 class CategoryActivity : AppCompatActivity(), MainView {
     override fun showLoading() {
@@ -48,7 +47,7 @@ class CategoryActivity : AppCompatActivity(), MainView {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if(item?.itemId == android.R.id.home)super.onBackPressed()
+        if (item?.itemId == android.R.id.home) super.onBackPressed()
         return super.onOptionsItemSelected(item)
     }
 }
