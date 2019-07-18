@@ -25,12 +25,12 @@ class SearchActivity : AppCompatActivity(), MainView {
     }
 
     override fun showData(items: ListItem) {
-        if(items.items.isNotEmpty()) {
+        if (items.items.isNotEmpty()) {
             rvSearch.layoutManager = LinearLayoutManager(this)
             rvSearch.adapter = EventAdapter(this, items.items) {
                 startActivity<DetailActivity>("item" to it)
             }
-        }else{
+        } else {
             searchNoResult.visibility = View.VISIBLE
         }
     }
@@ -42,8 +42,8 @@ class SearchActivity : AppCompatActivity(), MainView {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val presenter = MainPresenter(this)
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean{
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
                 query?.let { presenter.grabDataByQuery(it) }
                 return false
             }

@@ -8,10 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.zairussalamdev.uklam.R
 import com.zairussalamdev.uklam.model.Item
-import kotlinx.android.synthetic.main.item_event.view.*
 import kotlinx.android.synthetic.main.item_recommend.view.*
-import kotlinx.android.synthetic.main.item_recommend.view.itemName
-import kotlinx.android.synthetic.main.item_recommend.view.itemPhoto
 
 class RecommendAdapter(
     private val context: Context,

@@ -3,4 +3,7 @@
 
     <string name="title_activity_main">MainActivity</string>
     <string name="tidak_ada_data">Tidak Ada Data</string>
+    <string name="search">Search</string>
+    <string name="app_description">Ungkap Kearifan Lokal Asli Malang</string>
+    <string name="logo_uklam">Logo UKLAM</string>
 </resources>

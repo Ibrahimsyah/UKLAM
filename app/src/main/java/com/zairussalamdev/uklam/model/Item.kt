@@ -5,16 +5,16 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Item(
-    val itemId : String?,
+    val itemId: String?,
     val name: String?,
-    val shortName : String?,
+    val shortName: String?,
     val description: String?,
     val category: String?,
     val photo: String?,
     val location: String?,
     val address: String?
 ) : Parcelable {
-    constructor() : this("","", "", "", "", "", "", "")
+    constructor() : this("", "", "", "", "", "", "", "")
 }
 
 @Parcelize

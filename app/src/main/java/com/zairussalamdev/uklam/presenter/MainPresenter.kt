@@ -67,7 +67,7 @@ class MainPresenter(
                 override fun onDataChange(p0: DataSnapshot) {
                     for (h in p0.children) {
                         val item = h.getValue(Item::class.java)
-                        if (item?.name?.contains(query, ignoreCase = true)!! || item?.shortName?.contains(
+                        if (item?.name?.contains(query, ignoreCase = true)!! || item.shortName?.contains(
                                 query,
                                 ignoreCase = true
                             )!!

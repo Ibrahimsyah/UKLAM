@@ -29,8 +29,10 @@ class FavouriteActivity : AppCompatActivity() {
             favItems = res.parseList(classParser())
         }
         val items = initData(favItems)
-        if (items.isEmpty()) favNoData.visibility = View.VISIBLE
-        else {
+        if (items.isEmpty()) {
+            favNoData.visibility = View.VISIBLE
+            rvFavourite.visibility = View.GONE
+        } else {
             rvFavourite.layoutManager = LinearLayoutManager(this)
             rvFavourite.adapter = EventAdapter(this, items) {
                 startActivity<DetailActivity>("item" to it)
@@ -55,6 +57,25 @@ class FavouriteActivity : AppCompatActivity() {
             )
         }
         return items
+    }
+
+    override fun onResume() {
+        super.onResume()
+        var favItems: List<FavItem> = mutableListOf()
+        database.use {
+            val res = select(FavItem.TABLE_FAV)
+            favItems = res.parseList(classParser())
+        }
+        val items = initData(favItems)
+        if (items.isEmpty()) {
+            favNoData.visibility = View.VISIBLE
+            rvFavourite.visibility = View.GONE
+        } else {
+            rvFavourite.layoutManager = LinearLayoutManager(this)
+            rvFavourite.adapter = EventAdapter(this, items) {
+                startActivity<DetailActivity>("item" to it)
+            }
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
