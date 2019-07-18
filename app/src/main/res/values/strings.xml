@@ -2,4 +2,5 @@
     <string name="app_name">UKLAM</string>
 
     <string name="title_activity_main">MainActivity</string>
+    <string name="tidak_ada_data">Tidak Ada Data</string>
 </resources>

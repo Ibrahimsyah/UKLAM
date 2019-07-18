@@ -1,10 +1,8 @@
 package com.zairussalamdev.uklam.view
 
-import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.WindowManager
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -53,20 +51,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun initRecommend(items : List<Item>) : List<Item>{
-        val recommendItems : MutableList<Item> = mutableListOf()
-        for(i in items){
-            if(i.shortName != "")recommendItems.add(i)
+    private fun initRecommend(items: List<Item>): List<Item> {
+        val recommendItems: MutableList<Item> = mutableListOf()
+        for (i in items) {
+            if (i.shortName != "") recommendItems.add(i)
         }
         return recommendItems
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.search_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (item?.itemId == android.R.id.home){
+        if (item?.itemId == android.R.id.home) {
             startActivity<FavouriteActivity>()
         }
         if (item?.itemId == R.id.menu_search) startActivity<SearchActivity>()

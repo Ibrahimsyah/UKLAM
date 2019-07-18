@@ -11,6 +11,7 @@ import com.zairussalamdev.uklam.model.ListItem
 import com.zairussalamdev.uklam.presenter.MainPresenter
 import com.zairussalamdev.uklam.presenter.MainView
 import kotlinx.android.synthetic.main.activity_category.*
+import org.jetbrains.anko.startActivity
 
 class CategoryActivity : AppCompatActivity(), MainView {
     override fun showLoading() {
@@ -23,7 +24,9 @@ class CategoryActivity : AppCompatActivity(), MainView {
 
     override fun showData(items: ListItem) {
         rvCategory.layoutManager = LinearLayoutManager(applicationContext)
-        rvCategory.adapter = EventAdapter(applicationContext, items.items) {}
+        rvCategory.adapter = EventAdapter(applicationContext, items.items) {
+            startActivity<DetailActivity>("item" to it)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

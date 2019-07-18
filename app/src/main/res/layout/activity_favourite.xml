@@ -16,9 +16,9 @@
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:layout_below="@id/favouriteToolbar"
-            android:id="@+id/rvFavourite"/>
+            android:id="@+id/rvFavourite" android:padding="16dp"/>
     <TextView
-            android:text="Tidak Ada Data"
+            android:text="@string/tidak_ada_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/favNoData"
             android:layout_centerInParent="true" android:visibility="gone"/>

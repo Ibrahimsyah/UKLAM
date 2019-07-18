@@ -32,7 +32,7 @@
                     app:strokeColor="@color/colorPrimary"
                     app:strokeWidth="1dp"
                     android:id="@+id/detailPhoto"
-                    app:layout_collapseMode="parallax"></com.synnapps.carouselview.CarouselView>
+                    app:layout_collapseMode="parallax"/>
             <androidx.appcompat.widget.Toolbar
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

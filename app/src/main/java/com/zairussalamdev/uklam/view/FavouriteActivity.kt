@@ -1,7 +1,6 @@
 package com.zairussalamdev.uklam.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +13,7 @@ import com.zairussalamdev.uklam.model.Item
 import kotlinx.android.synthetic.main.activity_favourite.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.select
+import org.jetbrains.anko.startActivity
 
 class FavouriteActivity : AppCompatActivity() {
 
@@ -27,14 +27,13 @@ class FavouriteActivity : AppCompatActivity() {
         database.use {
             val res = select(FavItem.TABLE_FAV)
             favItems = res.parseList(classParser())
-            Log.d("unduhan", "favItems fav: $favItems")
         }
         val items = initData(favItems)
         if (items.isEmpty()) favNoData.visibility = View.VISIBLE
         else {
             rvFavourite.layoutManager = LinearLayoutManager(this)
             rvFavourite.adapter = EventAdapter(this, items) {
-                TODO("Add Listener")
+                startActivity<DetailActivity>("item" to it)
             }
         }
     }

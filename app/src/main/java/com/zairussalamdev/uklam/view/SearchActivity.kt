@@ -12,6 +12,7 @@ import com.zairussalamdev.uklam.model.ListItem
 import com.zairussalamdev.uklam.presenter.MainPresenter
 import com.zairussalamdev.uklam.presenter.MainView
 import kotlinx.android.synthetic.main.activity_search.*
+import org.jetbrains.anko.startActivity
 
 class SearchActivity : AppCompatActivity(), MainView {
     override fun showLoading() {
@@ -27,6 +28,7 @@ class SearchActivity : AppCompatActivity(), MainView {
         if(items.items.isNotEmpty()) {
             rvSearch.layoutManager = LinearLayoutManager(this)
             rvSearch.adapter = EventAdapter(this, items.items) {
+                startActivity<DetailActivity>("item" to it)
             }
         }else{
             searchNoResult.visibility = View.VISIBLE

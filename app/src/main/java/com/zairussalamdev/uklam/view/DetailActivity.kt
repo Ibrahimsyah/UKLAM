@@ -2,9 +2,7 @@ package com.zairussalamdev.uklam.view
 
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -31,23 +29,17 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            window.setFlags(
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-            )
-        }
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
 
         item = intent.getParcelableExtra("item")
-        Log.d("unduhan", "item: $item")
         detailToolbar.title = item.shortName
         setSupportActionBar(detailToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         database.use {
-            val res = select(FavItem.TABLE_FAV).whereArgs("${FavItem.ITEM_ID}=${item.itemId}")
-            val res1 = select(FavItem.TABLE_FAV)
-            val favItems = res.parseList(classParser<FavItem>())
-            Log.d("unduhan", "favItems: $favItems")
+            val res = select(FavItem.TABLE_FAV).whereArgs("${FavItem.ITEM_ID}=\"${item.itemId}\"")
             isFav = res.parseList(classParser<FavItem>()).isNotEmpty()
         }
 
@@ -105,13 +97,12 @@ class DetailActivity : AppCompatActivity() {
                 toast("Ditambahkan ke Favorit")
             } else {
                 database.use {
-                    delete(FavItem.TABLE_FAV, "${FavItem.ITEM_ID}=${item.itemId}")
+                    delete(FavItem.TABLE_FAV, "${FavItem.ITEM_ID}=\"${item.itemId}\"")
                 }
                 menuItem.setIcon(R.drawable.ic_favorite_white)
                 toast("Dihapus dari Favorit")
             }
             isFav = !isFav
-            Log.d("unduhan", "isFav= $isFav")
         }
         return super.onOptionsItemSelected(menuItem)
     }
