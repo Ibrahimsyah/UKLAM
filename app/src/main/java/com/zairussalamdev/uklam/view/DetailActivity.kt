@@ -56,7 +56,7 @@ class DetailActivity : AppCompatActivity() {
             itemName.text = it
         }
         itemDescription.text = item.description
-        item.address?.let {
+        if (item.address?.length != 0) {
             iconPin.visibility = View.VISIBLE
             tvLokasi.visibility = View.VISIBLE
             tvLokasi.text = item.address
@@ -67,7 +67,6 @@ class DetailActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -54,7 +54,7 @@
                     android:text="TextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:id="@+id/itemName"
-                    android:fontFamily="@font/productsans_bold" android:textSize="18sp" android:visibility="gone"
+                    android:fontFamily="@font/productsans_bold" android:textSize="18sp" android:visibility="visible"
                     android:textColor="@android:color/black"/>
             <ImageView
                     android:src="@drawable/ic_pin_drop"
@@ -69,7 +69,7 @@
                     android:layout_alignParentBottom="false"
                     android:layout_alignTop="@id/iconPin" android:layout_marginLeft="10dp"
                     android:fontFamily="@font/productsans_regular" android:layout_alignBaseline="@id/iconPin"
-                    android:visibility="gone"/>
+                    android:visibility="invisible" android:layout_below="@id/itemName"/>
             <TextView
                     android:text="Deskripsi"
                     android:layout_width="wrap_content"
