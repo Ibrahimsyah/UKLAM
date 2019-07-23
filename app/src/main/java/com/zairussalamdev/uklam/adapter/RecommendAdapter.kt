@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.zairussalamdev.uklam.R
 import com.zairussalamdev.uklam.model.Item
 import kotlinx.android.synthetic.main.item_recommend.view.*
@@ -23,7 +24,7 @@ class RecommendAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bindItem(items[position], listener)
         val photoURL = items[position].photo?.split(";")?.get(0)
-        Glide.with(context).load(photoURL).into(holder.itemView.itemPhoto)
+        Glide.with(context).load(photoURL).override(160,120).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.itemView.itemPhoto)
     }
 
 

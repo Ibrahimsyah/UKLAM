@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity() {
             startActivity<DetailActivity>("item" to it)
         }
         rvEvent.layoutManager = LinearLayoutManager(applicationContext)
+        rvEvent.setItemViewCacheSize(20)
+        rvEvent.setHasFixedSize(true)
         rvEvent.adapter = EventAdapter(applicationContext, items) {
             startActivity<DetailActivity>("item" to it)
         }
